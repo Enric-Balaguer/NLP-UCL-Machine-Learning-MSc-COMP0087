@@ -1,0 +1,22 @@
+#!/bin/bash -l
+
+echo "Job started"
+
+# Change into temporary directory to run work
+cd $TMPDIR
+
+#Load Python3.11 --> Important!!! OpenSSL dependencies issues if not
+module load python3/3.11
+source /home/ucabcfj/never_lose_hope/python3-11/bin/activate
+
+#Redirect to GPT-NeoX directory
+cd /home/ucabcfj/never_lose_hope/gpt-neox
+
+#Attempt to tokenize data
+python tools/datasets/preprocess_data.py \ #Path of neox's preprocess data script
+  --input /home/ucabcfj/never_lose_hope/datasets/textbooks.jsonl \ #Path to dataset jsonl file
+  --output-prefix /home/ucabcfj/never_lose_hope/datasets/textbooks \ #Path where you want .idk and .bin files to be
+  --vocab-file /home/ucabcfj/never_lose_hope/gpt-neox/20B_tokenizer.json \ #Path for the vocab file of choice. You must download this file from neox repo.
+  --tokenizer-type HFTokenizer \ #Choose tokenizer type according to vocab file chosen
+  --dataset-impl mmap \ 
+  --append-eod

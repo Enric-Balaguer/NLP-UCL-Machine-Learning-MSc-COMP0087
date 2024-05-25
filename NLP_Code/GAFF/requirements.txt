@@ -1,0 +1,3 @@
+torch
+numpy
+git+https://github.com/EleutherAI/DeeperSpeed.git@02e2ebf7dee6aaab3d89094ed470a4609763c742#egg=deepspeed

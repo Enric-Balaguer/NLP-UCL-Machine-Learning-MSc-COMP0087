@@ -1,0 +1,13 @@
+/.vscode
+/poetry.lock
+/pythia-2.8b
+/pythia-70m-deduped
+*.sif
+training_data/*
+checkpoints/*
+.venv/*
+active_forgetting_run_*/*
+*__pycache__/*
+wandb/*
+*/global_step*
+checkpoints_*/latest
